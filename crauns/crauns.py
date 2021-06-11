@@ -34,7 +34,7 @@ def main():
     if args["mode"] == "set":
         set_key(args["image"], args["name"], args["priv"])
     elif args["mode"] == "verify":
-        verify(args["image"], args["name"], args["pub"])
+        print(verify(args["image"], args["name"], args["pub"]))
 
 if __name__ == "__main__":
     main()
