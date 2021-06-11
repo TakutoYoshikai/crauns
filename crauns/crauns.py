@@ -2,21 +2,24 @@ from stegano import lsb
 from Crypto.PublicKey import RSA
 from Crypto.Signature import pkcs1_15
 from Crypto.Hash import SHA256
+from lina import lina
 import base64
 import sys
 import argparse
+from PIL import Image
 
 def set_key(image_path, name, privkey_path):
     privkey = RSA.import_key(open(privkey_path, "rb").read())
     pubkey = privkey.publickey()
-    signature = pkcs1_15.new(privkey).sign(SHA256.new(name.encode())).hex()
-    img = lsb.hide(image_path, signature)
-    img.save("signed.png")
+    signature = pkcs1_15.new(privkey).sign(SHA256.new(name.encode()))
+    img = Image.open(image_path)
+    data = lina.hide(img, signature)
+    data.save("signed.png")
 
 def verify(image_path, name, pubkey_path):
     pubkey = RSA.import_key(open(pubkey_path, "rb").read())
-    signature = lsb.reveal(image_path)
-    signature = bytes.fromhex(signature)
+    img = Image.open(image_path)
+    signature = lina.reveal(img)
     try:
         pkcs1_15.new(pubkey).verify(SHA256.new(name.encode()), signature)
     except:
