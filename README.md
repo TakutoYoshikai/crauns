@@ -1,5 +1,5 @@
 # crauns
-crauns is a tool to prove that people are a member of the same group by scanning thumbnail icon.
+crauns is a tool to prove that people are a member of the same group by scanning thumbnail icon. It uses RSA private key and public key to sign.
 
 ### Usage
 **install**
