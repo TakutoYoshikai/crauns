@@ -1,5 +1,5 @@
 # crauns
-crauns is a tool to prove that people are a member of the same group by scanning thumbnail icon.
+crauns is a tool to prove that the person is a member of the same group by scanning thumbnail icon.
 
 ### Usage
 **install**
