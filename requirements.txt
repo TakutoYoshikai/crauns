@@ -1,3 +1,2 @@
 pycryptodome == 3.14.1
-stegano
 git+https://github.com/TakutoYoshikai/crauns.git
